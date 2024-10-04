@@ -9,13 +9,13 @@ This repository contains the crop map and crop calendar implementation for AquaC
 ([Van Tricht et al., 2023](https://doi.org/10.5194/essd-15-5491-2023)) and EUCROPMAP 
 ([d'Andrimont et al., 2021](https://doi.org/10.1016/j.rse.2021.112708)).
 2. Crop calendars ([Franch et al., 2022](https://doi.org/10.1080/15481603.2022.2079273))
-3. .CLI climate files: Climate characteristics derived from MERRA-2 ([NASA GMAO](https://doi.org/10.5067/VJAFPLI1CSIV)) implemented
+3. CLI climate files: Climate characteristics derived from MERRA-2 ([NASA GMAO](https://doi.org/10.5067/VJAFPLI1CSIV)) implemented
 from spatial AquaCrop processing following [de Roos et al., 2021](https://doi.org/10.5194/gmd-14-7309-2021) and 
 [Busschaert et al., 2022](https://doi.org/10.5194/hess-26-3731-2022).
-4. .SOL soil files: Soil characteristics derived from HWSD v1.2 ([Fischer et al., 2008](https://doi.org/10.1002/2014MS000330)) 
+4. SOL soil files: Soil characteristics derived from HWSD v1.2 ([Fischer et al., 2008](https://doi.org/10.1002/2014MS000330)) 
 with soil hydraulic properties linked to mineral soil texture and organic matter
 via pedo-transfer functions described in [de Lannoy et al., 2014](https://doi.org/10.1002/2014MS000330).
-5. .CRO files: Crop parameters derived from default AquaCrop crop files ([Raes et al., 2017](http://www.fao.org/nr/water/aquacrop.html))
+5. CRO files: Crop parameters derived from default AquaCrop crop files ([Raes et al., 2017](http://www.fao.org/nr/water/aquacrop.html))
 and calibrated across Europe following processes similarly described in *([insert Vincent's paper here])*.
 
 ## AquaCrop simulation performance analysis
