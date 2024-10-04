@@ -19,7 +19,7 @@ and combining files through date information extracted from the file naming form
 
 4. Combine individual subsetted netcdf files together:
      - "module load NCO/5.0.1-foss-2021a"
-     - **"ncecat -u time in*.nc out.nc"**
+     - **"ncecat -u time in\*.nc out.nc"**
          - Combined netcdf now has time dimension but not in date format. Look at the next step to build date info.
 
 5. Build date info:
@@ -28,7 +28,7 @@ and combining files through date information extracted from the file naming form
      - To build date info, dates are extracted using the individual file names
      - Python script: **ExtractTime.py** (Converts dates to number of days since 01/01/1970)
          - Dates saved as text file
-     - NCO Command: **ncap2 -O -s 'time[time]={1,2,3,etc.*copy_and_paste_dates_from_text_file_here}' out.nc out.nc**
+     - NCO Command: **ncap2 -O -s 'time[time]={1,2,3,etc.\*copy_and_paste_dates_from_text_file_here}' out.nc out.nc**
 
 6. Build date units:
      - NCO Command: **ncatted -a units,time,o,c,"days since 1970-01-01 00:00:00"**
