@@ -1,3 +1,6 @@
+
+![512px-KU_Leuven_logo svg](https://github.com/user-attachments/assets/26282e47-c12c-4077-b605-96096071e9c4)
+
 # Enhancing AquaCrop Simulations with Crop Maps and Calendars: A Continental-Scale Modelling Approach for Europe
 
 This repository contains the crop map and crop calendar implementation for AquaCrop simulations used in *[Eun et al., 2025]*.
