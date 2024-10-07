@@ -1,8 +1,8 @@
-<div style="display: flex; justify-content: space-between;">
-  <div>
+<div style="display: flex; justify-content: space-between; align-items: center;">
+  <div style="flex: 1;">
     <img src="https://github.com/user-attachments/assets/26282e47-c12c-4077-b605-96096071e9c4" alt="KU Leuven logo" width="200"/>
   </div>
-  <div>
+  <div style="flex: 1; text-align: right;">
     <img src="https://github.com/user-attachments/assets/16f6e334-aa18-4c72-9882-ca82fc49e649" alt="BELSPO" width="200"/>
   </div>
 </div>
