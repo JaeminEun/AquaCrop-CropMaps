@@ -1,7 +1,7 @@
-<div style="text-align: right;">
+<p style="text-align: right;">
   <img src="https://github.com/user-attachments/assets/26282e47-c12c-4077-b605-96096071e9c4" alt="KU Leuven logo" width="200"/><br/>
   <img src="https://github.com/user-attachments/assets/16f6e334-aa18-4c72-9882-ca82fc49e649" alt="BELSPO" width="200"/>
-</div>
+</p>
 
 # Enhancing AquaCrop Simulations with Crop Maps and Calendars: A Continental-Scale Modelling Approach for Europe
 
