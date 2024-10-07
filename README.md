@@ -1,5 +1,4 @@
-
-![512px-KU_Leuven_logo svg](https://github.com/user-attachments/assets/26282e47-c12c-4077-b605-96096071e9c4)
+<img src="https://github.com/user-attachments/assets/26282e47-c12c-4077-b605-96096071e9c4" alt="KU Leuven logo" width="300"/>
 
 # Enhancing AquaCrop Simulations with Crop Maps and Calendars: A Continental-Scale Modelling Approach for Europe
 
