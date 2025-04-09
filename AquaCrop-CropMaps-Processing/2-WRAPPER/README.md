@@ -66,18 +66,20 @@ Example SLURM script: `AC_exec.slurm`
 
 ```bash
 #!/bin/bash
-#SBATCH --job-name=AC_Run
-#SBATCH --output=AC_Run.out
-#SBATCH --error=AC_Run.err
-#SBATCH --ntasks=1
-#SBATCH --cpus-per-task=36
-#SBATCH --time=12:00:00
-#SBATCH --mem=64G
+#SBATCH -t hh:mm:ss
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=36
+#SBATCH -A lp_ees_swm_ls_002 (your vsc credit account)
+#SBATCH --cluster=genius
+#SBATCH -o run_log.txt
+#SBATCH -e error_out.txt
+#SBATCH --mail-type=FAIL,BEGIN,END
+#SBATCH --mail-user=YOUR.EMAIL@kuleuven.be
 
 module load Python/3.10.4  # Adjust based on your environment
 source ~/envs/aquacrop_env/bin/activate  # Activate your virtual environment
 
-python AC_exec_Mz-GDD.py  # Replace with the target script
+python AC_exec_Mz-GDD.py  # Replace with the target script (either specify whole path or cd command before executing script).
 ```
 
 To submit:
