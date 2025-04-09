@@ -39,6 +39,8 @@ Each crop type has its own set of scripts and input folders:
 | **Mz-Cal** | Shared | **SOS from WorldCereal** + offset | WorldCereal start-of-season (SOS) integrated |
 | **Mz-GDD** | Shared | **SOS from WorldCereal** + offset | Uses GDD dynamics but not unique `.CRO` |
 
+Offset: A buffer of 24 days is added to align the AquaCrop emergence window with WorldCereal Crop Calendar definitions.
+
 ---
 
 ## ⚙️ Running the Wrapper
