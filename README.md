@@ -22,10 +22,6 @@ via pedo-transfer functions described in [de Lannoy et al., 2014](https://doi.or
 5. CRO files: Crop parameters derived from default AquaCrop crop files ([Raes et al., 2017](http://www.fao.org/nr/water/aquacrop.html))
 and calibrated across Europe following processes similarly described in *([insert Vincent's paper here])*.
 
-## AquaCrop simulation performance analysis
-1. Validation metric calculation
-2. Spatial boxplots
-3. Anomaly correlation
 
 ## Data availability 
 The data required to produce the AquaCrop set up with crop maps and crop calendars are accesible at the following (*[Insert Zenodo Here]*)
