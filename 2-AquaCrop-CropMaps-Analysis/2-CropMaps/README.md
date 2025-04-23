@@ -36,6 +36,8 @@ The datasets above are harmonized and combined through the following steps:
 3. **Resampling**  
    - The final intersected crop masks are resampled using **nearest-neighbor interpolation** to match the resolution of the Copernicus Global Land Service (CGLS) observations (300 meters).
    - These observations are then used to evaluate the AquaCrop simulations.
+  
+![Workflow illustration](CropMap.png)
 
 ## 📈 Application
 
