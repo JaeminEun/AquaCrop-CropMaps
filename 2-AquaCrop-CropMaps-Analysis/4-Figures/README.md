@@ -1,4 +1,4 @@
-# AquaCrop vs. CGLS Evaluation Toolkit
+# AquaCrop vs. CGLS Evaluation 
 
 This repository contains a set of Python scripts developed to compare crop growth simulations from the **AquaCrop** model with observational datasets from **Copernicus Global Land Service (CGLS)**. The analysis focuses on evaluating model performance for both generic and maize-specific crop setups under different calibration scenarios (Calendar-based and GDD-based).
 
@@ -18,9 +18,13 @@ This repository contains a set of Python scripts developed to compare crop growt
   - Summary statistics (mean, std) embedded per map  
   Output: `CC_R_Comparison.png`
 
+  Files representing different skill metrics can be swapped to make spatial comparisons.
+
 - `3-DiffMap.py`  
   Produces **difference maps** between GDD and Calendar setups for both generic and maize crops, visualizing where GDD calibration improves or worsens correlation with observed data.  
   Output: `CorrelationDiff.png`
+
+  Files for different crops can be swapped to evaluate differences, likewise, different metrics can be swapped to visualize differences in crop production against CGLS data.
 
 - `4-TimeSeries.py`  
   Performs **time-series comparisons** of daily **Biomass accumulation** and **Canopy Cover (CC)**:
@@ -33,7 +37,7 @@ This repository contains a set of Python scripts developed to compare crop growt
 
 - **AquaCrop Model Outputs**: Simulated crop development under different calibration and crop-specific scenarios.
 - **CGLS DMP & FCOVER**: 300m observational products used for benchmarking model performance.
-- **UnionResample300m.tif**: Used to align the model domain with satellite observations.
+- **UnionResample300m.tif**: This represents the crop maps used to align the model domain with satellite observations. The evaluation is preformed on the crop specific locations. This file represents maize, other maps can be used to compare different crop types. 
 
 ## 🛠 Dependencies
 
