@@ -4,8 +4,6 @@
 
 # Enhancing AquaCrop Simulations with Crop Maps and Calendars: A Continental-Scale Modelling Approach for Europe
 
-This repository contains the crop map and crop calendar implementation for AquaCrop simulations used in *[Eun et al., 2025]*.
-
 ## AquaCrop Setup
 
 ## Data for AquaCrop with crop maps and calendars
@@ -20,17 +18,16 @@ from spatial AquaCrop processing following [de Roos et al., 2021](https://doi.or
 with soil hydraulic properties linked to mineral soil texture and organic matter
 via pedo-transfer functions described in [de Lannoy et al., 2014](https://doi.org/10.1002/2014MS000330).
 5. CRO files: Crop parameters derived from default AquaCrop crop files ([Raes et al., 2017](http://www.fao.org/nr/water/aquacrop.html))
-and calibrated across Europe following processes similarly described in *([insert Vincent's paper here])*.
+and calibrated across Europe following processes similarly described in "Vincent's Paper".
 
-
-## Data availability 
-The data required to produce the AquaCrop set up with crop maps and crop calendars are accesible at the following (*[Insert Zenodo Here]*)
-
-## Version
-Version 1.0, October 2024
+## Data Structure (HPC)
+There are 3 main data sources that are housed in the following path:`/staging/leuven/stg_00024/OUTPUT/jaemine/Data`
+1. Copernicus_DMP_300m: For validation of biomass (the processing is documented in more detail in the "Analysis" portion of this repository).
+2. Copernicus_FCOVER_300m: For validation of canopy cover (the processing is documented in more detail in the "Analysis" portion of this repository).
+3. CropMaps: Contains assets used to create the 300-m crop maps used to match the resolution of the Copernicus (CGLS) evaluation data.
+   - 
 
 ## Author
 Jaemin Eun
 
-## References
-*[Insert DOI to article here]*
+
