@@ -25,7 +25,7 @@ There are 3 main data sources that are housed in the following path:`/staging/le
 1. Copernicus_DMP_300m: For validation of biomass (the processing is documented in more detail in the "Analysis" portion of this repository).
 2. Copernicus_FCOVER_300m: For validation of canopy cover (the processing is documented in more detail in the "Analysis" portion of this repository).
 3. CropMaps: Contains assets used to create the 300-m crop maps used to match the resolution of the Copernicus (CGLS) evaluation data.
-   - 
+- List... 
 
 ## Author
 Jaemin Eun
