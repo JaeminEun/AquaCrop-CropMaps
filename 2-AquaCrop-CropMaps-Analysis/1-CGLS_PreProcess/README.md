@@ -1,6 +1,6 @@
 <img src="https://github.com/user-attachments/assets/26282e47-c12c-4077-b605-96096071e9c4" alt="KU Leuven logo" width="200"/>
 
-# FCOVER Proprocessing Steps
+# CGLS Evaluation Data Proprocessing Steps
 
 FCOVER datasets from the CGLS (Copernicus Global Land Service) do not come with native time records.
 The following assets contain a mix of python and shell scripts (utilizing NCO) to subset data to user specified locations
