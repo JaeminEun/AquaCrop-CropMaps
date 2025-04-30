@@ -87,11 +87,6 @@ This improves data accessibility for visualization, large-scale analysis, or cli
 
 ---
 
-## 📬 Author & Acknowledgments
-
-Developed by **Jaemin Eun**, with contributions from Dr. Shannon De Roos and others. Designed for use in remote sensing-based crop modeling and climate resilience studies.
-
-
 ---
 
 # AquaCrop Evaluation Pipeline
