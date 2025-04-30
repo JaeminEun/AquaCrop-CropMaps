@@ -28,7 +28,149 @@ There are 3 main data sources that are housed in the following path:`/staging/le
 4. CropMaps: Contains assets used to create the 300-m crop maps used to match the resolution of the Copernicus (CGLS) evaluation data. Assets include processed binaries (seperated by crop type) for each map source, resampled maps, and csv files of grid locations (row, col) containing the specified crop types.
 5. soil: Contains soil files (.SOL) specific to each grid location for the European domain.
 
-## Author
-Jaemin Eun
+---
+
+# AquaCrop Simulation Framework
+
+This repository contains a full pipeline for preparing, running, and post-processing **AquaCrop** simulations at scale, using remote sensing and climate data as inputs.
+
+## 📦 Repository Structure
+
+```plaintext
+Inputs/         # Create AquaCrop-compatible .CLI, .CRO, and .SOL input files
+Wrapper/        # Generate PRM files and run AquaCrop in parallel across a grid
+Postprocessing/ # Convert AquaCrop output files to NetCDF for analysis
+```
+
+---
+
+## 1️⃣ Inputs: Climate, Crop, and Soil File Generation
+
+These scripts create the necessary input files for AquaCrop:
+
+- **`.CLI` files**: Generated from MERRA-2 climate data for each grid cell, including `.Tnx`, `.PLU`, `.ETo`, and `.CO2` references.
+- **`.CRO` files**: Built from satellite-derived GDD phenology data, assigning unique crop stages per cell.
+- **`.SOL` files**: Created using dominant soil texture data from HWSD, assigning one of 12 soil profiles per grid cell.
+
+Each file is written with AquaCrop's naming conventions (e.g., `307_317.SOL`) and only where valid land and soil data exist.
+
+---
+
+## 2️⃣ Wrapper: Batch Simulation and PRM File Management
+
+This module automates:
+
+- **PRM file creation**: For each grid cell and crop type, generating AquaCrop project management files with proper configurations.
+- **Parallel execution**: Runs AquaCrop simulations using Python's `multiprocessing`, optionally integrated with SLURM for HPC.
+
+Supports multiple crop strategies (e.g., Gen-GDD, Mz-Cal, Mz-GDD), some of which depend on per-cell `.CRO` files or dynamic SOS timing from WorldCereal.
+
+---
+
+## 3️⃣ Postprocessing: Export to NetCDF
+
+After simulations complete, this script:
+
+- Extracts selected daily output variables (e.g., `Biomass`, `CC`) from AquaCrop’s `.OUT` files.
+- Combines them into a single compressed **NetCDF4** file across all grid cells and time steps.
+- Converts AquaCrop’s grid system to georeferenced `lat/lon` coordinates at 0.05° resolution.
+
+This improves data accessibility for visualization, large-scale analysis, or climate impact assessments.
+
+---
+
+## 🚀 Usage Overview
+
+1. Prepare input files in the `Inputs/` folder
+2. Run the wrapper scripts per crop scenario in `Wrapper/`
+3. Execute the NetCDF export from `Postprocessing/` once outputs are available
+
+---
+
+## 📬 Author & Acknowledgments
+
+Developed by **Jaemin Eun**, with contributions from Dr. Shannon De Roos and others. Designed for use in remote sensing-based crop modeling and climate resilience studies.
+
+
+---
+
+# AquaCrop Evaluation Pipeline
+
+This portion of the repository includes tools for evaluating AquaCrop simulations against satellite-based observations, primarily from the **Copernicus Global Land Service (CGLS)**. It contains preprocessing routines, spatial matching logic, metric computation, and final visualization scripts.
+
+---
+
+## 📁 Directory Overview
+
+```plaintext
+1-CGLS_preprocess/   # Preprocessing Copernicus FCOVER/DMP data for evaluation
+2-CropMaps/          # Crop-specific masking using multi-year remote sensing maps
+3-SkillMetrics/      # Compute R, Bias, RMSD, ubRMSD between AquaCrop and CGLS
+4-Figures/           # Boxplots, maps, and time series comparing model to observations
+```
+
+---
+
+## 1️⃣ CGLS Preprocessing
+
+Scripts and shell commands to process **CGLS FCOVER/DMP data**:
+- Download via API (`CGLS_catalogue_and_download_demo.py`)
+- Subset using NCO (`ncks_subsetFCOVER.sh`)
+- Combine into time-aware NetCDF files (`ncecat`, `ExtractTime.py`, `ncap2`)
+- Add units and chunk for efficiency
+
+---
+
+## 2️⃣ Crop Map Masking
+
+Combines **EUCROPMAP (2018/2022)** and **WorldCereal (2021)** to:
+- Identify **stable crop locations** for maize, spring/winter cereals
+- Create intersection masks to reduce noise from crop rotation
+- Resample to match CGLS 300m resolution
+- Output used for spatial evaluation of AquaCrop outputs
+
+---
+
+## 3️⃣ Skill Metric Computation
+
+Evaluates AquaCrop's **daily outputs** against satellite data:
+- FCOVER → for Canopy Cover (CC)
+- DMP → for Biomass (optional)
+
+Four metrics computed:
+- Pearson R
+- Bias
+- RMSD
+- ubRMSD
+
+Each script operates independently and outputs spatial NetCDF metric maps.
+
+---
+
+## 4️⃣ Visualization and Comparison
+
+Scripts to produce evaluation figures:
+- **Boxplots**: Aggregate performance across scenarios
+- **Maps**: Spatial distribution of correlation or error
+- **Diff Maps**: Compare setups (e.g., Calendar vs GDD)
+- **Time Series**: Daily crop dynamics, grid-cell matched
+
+Outputs are publication-ready `.png` figures summarizing model performance vs. CGLS.
+
+---
+
+## ⚙️ Requirements
+
+- Python: `numpy`, `xarray`, `pandas`, `matplotlib`, `seaborn`, `netCDF4`, `Pillow`
+- Shell: NCO tools (`ncks`, `ncecat`, `ncap2`, `ncatted`)
+- Some parts use `Basemap` for mapping
+
+---
+
+## ✍ Author
+
+Developed by **Jaemin Eun**, as part of a geospatial modeling pipeline to benchmark crop simulations using earth observation data.
+
+
 
 
